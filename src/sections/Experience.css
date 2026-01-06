@@ -1,0 +1,105 @@
+.experience-section {
+    padding-bottom: 4rem;
+}
+
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding-left: 2rem;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 2px;
+    height: 100%;
+    background: var(--glass-border);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 3rem;
+    padding-left: 2rem;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: -25px; /* Adjust based on timeline line position */
+    top: 5px;
+    width: 12px;
+    height: 12px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--primary-color);
+}
+
+/* Fix dot position relative to main line which is at left:0 of .timeline, but items are padded.
+   Actually easier: .timeline has left-border? No, I used ::before on .timeline.
+*/
+
+.timeline::before {
+    left: 7px; /* Center of the 12px dot approx */
+}
+.timeline-dot {
+    left: 1px; /* Center on line */
+}
+
+.timeline-content {
+    background: rgba(255, 255, 255, 0.02);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid var(--glass-border);
+    transition: all 0.3s ease;
+}
+
+.timeline-content:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--primary-color);
+}
+
+.job-period {
+    color: var(--accent-color);
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.job-role {
+    font-size: 1.3rem;
+    color: #fff;
+    margin-bottom: 0.2rem;
+}
+
+.job-company {
+    color: var(--primary-color);
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.job-location {
+    font-size: 0.85rem;
+    color: #888;
+    margin-bottom: 1rem;
+    font-style: italic;
+}
+
+.job-description {
+    color: #ccc;
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    .timeline {
+        padding-left: 1rem;
+    }
+    .timeline::before {
+        left: 6px;
+    }
+    .timeline-dot {
+        left: 0px;
+    }
+}

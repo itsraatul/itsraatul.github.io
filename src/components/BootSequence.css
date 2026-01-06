@@ -1,0 +1,50 @@
+.boot-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  z-index: 9999;
+  display: flex;
+  align-items: flex-end;
+  padding: 4rem;
+  font-family: 'Space Mono', monospace;
+  overflow: hidden;
+}
+
+.boot-content {
+  color: var(--primary-color);
+  font-size: 1.2rem;
+  line-height: 1.8;
+  max-width: 800px;
+}
+
+.boot-line {
+  margin-bottom: 0.5rem;
+  text-shadow: 0 0 5px var(--primary-color);
+}
+
+.boot-prefix {
+  color: #fff;
+  margin-right: 10px;
+}
+
+.boot-cursor {
+  display: inline-block;
+  width: 10px;
+  height: 20px;
+  background-color: var(--primary-color);
+  animation: blink 0.8s infinite;
+  margin-left: 5px;
+}
+
+@media (max-width: 768px) {
+  .boot-screen {
+    padding: 2rem;
+    align-items: flex-start;
+  }
+  .boot-content {
+    font-size: 1rem;
+  }
+}
