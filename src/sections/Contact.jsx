@@ -22,7 +22,7 @@ const Contact = () => {
             <a href="https://github.com/itsraatul" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                 <FaGithub size={24} />
             </a>
-            <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar">
+            <a href="https://scholar.google.com/citations?user=a4EGu4AAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar">
                 <FaGoogle size={24} />
             </a>
         </div>

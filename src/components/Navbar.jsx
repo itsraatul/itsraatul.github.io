@@ -33,7 +33,7 @@ export const Navbar = () => {
             <a href="mailto:its.raatul@gmail.com" aria-label="Email"><FaEnvelope /></a>
             <a href="https://github.com/itsraatul" target="_blank" rel="noreferrer" aria-label="GitHub"><FaGithub /></a>
             <a href="https://linkedin.com/in/raatul" target="_blank" rel="noreferrer" aria-label="LinkedIn"><FaLinkedin /></a>
-            <a href="#" target="_blank" rel="noreferrer" aria-label="Google Scholar"><FaGoogle /></a>
+            <a href="https://scholar.google.com/citations?user=a4EGu4AAAAAJ&hl=en" target="_blank" rel="noreferrer" aria-label="Google Scholar"><FaGoogle /></a>
           </div>
 
           <a href="/resume/resume.txt" download className="resume-btn">
