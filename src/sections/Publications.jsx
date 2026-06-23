@@ -1,39 +1,52 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { FiArrowUpRight } from "react-icons/fi";
 import Section from "../components/Section";
 import "./Publications.css";
 
 const Publications = () => {
   const papers = [
     { 
+        title: "Ephemeral Cryptographic Architecture for Blockchain-Based Software Licensing",
+        conf: "IEEE",
+        year: "2026",
+        link: "https://ieeexplore.ieee.org/document/11518410"
+    },
+    { 
         title: "Design and Development of a Blockchain and IPFS-Based Credential Verifier with Custom Lightweight Encryption for Secure Storage",
-        conf: "2025 International Conference on Electrical, Computer and Communication...",
-        year: "2025"
+        conf: "IEEE",
+        year: "2025",
+        link: "https://ieeexplore.ieee.org/abstract/document/11013795/"
     },
     { 
         title: "Blockchain-Enhanced Academic Certificate Verification: A Decentralized and Trustworthy Framework",
-        conf: "2024 International Conference on Advances in Computing, Communication...",
-        year: "2024"
-    },
-    { 
-        title: "Verifi-chain: a credentials verifier using blockchain and IPFS",
-        conf: "International Conference on Information, Communication and Computing...",
-        year: "2023"
-    },
-    { 
-        title: "Certiblock: the exemplary utilization of blockchain for the rigorous validation of academic certificates",
-        conf: "2023 26th International Conference on Computer and Information Technology...",
-        year: "2023"
+        conf: "IEEE",
+        year: "2024",
+        link: "https://ieeexplore.ieee.org/abstract/document/10499524/"
     },
     { 
         title: "RMT: A Lightweight Encryption Algorithm for Blockchain-Based Certificate Verification",
-        conf: "2023 IEEE 9th International Women in Engineering (WIE) Conference...",
-        year: "2023"
+        conf: "IEEE",
+        year: "2023",
+        link: "https://ieeexplore.ieee.org/abstract/document/10456497/"
     },
     { 
-        title: "Voice Controlled Home Automation with Cloud-Based Environment Monitoring System",
-        conf: "International Conference on Information and Communication Technology...",
-        year: "2023"
+        title: "Verifi-Chain: A Credentials Verifier Using Blockchain and IPFS",
+        conf: "Springer Nature",
+        year: "2023",
+        link: "https://link.springer.com/chapter/10.1007/978-981-99-5166-6_24"
+    },
+    { 
+        title: "CertiBlock: The Exemplary Utilization of Blockchain for the Rigorous Validation of Academic Certificates",
+        conf: "IEEE",
+        year: "2023",
+        link: "https://ieeexplore.ieee.org/abstract/document/10441100/"
+    },
+    { 
+        title: "Voice-Controlled Home Automation with Cloud-Based Environment Monitoring System",
+        conf: "Springer Nature Singapore",
+        year: "2022",
+        link: "https://link.springer.com/chapter/10.1007/978-981-19-9638-2_21"
     }
   ];
 
@@ -43,20 +56,31 @@ const Publications = () => {
       
       <div className="publications-timeline">
         {papers.map((paper, index) => (
-          <motion.div 
+          <motion.a 
             key={index} 
+            href={paper.link}
+            target="_blank"
+            rel="noopener noreferrer"
             className="pub-card"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: index * 0.1 }}
           >
-            <div className="pub-year">{paper.year}</div>
+            <div className="pub-card-header">
+                <span className="pub-year">{paper.year}</span>
+                <span className="pub-icon"><FiArrowUpRight /></span>
+            </div>
             <div className="pub-content">
                 <h3 className="pub-title">{paper.title}</h3>
                 <p className="pub-conf">{paper.conf}</p>
             </div>
-          </motion.div>
+            <div className="pub-footer">
+                <span className="pub-read-link">
+                    Read Publication <FiArrowUpRight style={{ marginLeft: "4px" }} />
+                </span>
+            </div>
+          </motion.a>
         ))}
       </div>
     </Section>

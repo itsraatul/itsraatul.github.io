@@ -19,23 +19,28 @@ const Hero = () => {
           className="hero-text-block"
         >
           
-          <h1 className="hero-title glitch" data-text="Hi, I'm Arunangshu Mojumder Raatul">
-            Hi, I'm Arunangshu Mojumder Raatul
-          </h1>
+          <h2 className="hero-greeting">Hi, I am</h2>
+          <div className="glitch-container">
+            <h1 className="hero-title glitch-main">Arunangshu Mojumder Raatul</h1>
+            <h1 className="hero-title glitch-clone glitch-red">Arunangshu Mojumder Raatul</h1>
+            <h1 className="hero-title glitch-clone glitch-cyan">Arunangshu Mojumder Raatul</h1>
+          </div>
           
           <div className="bio-container">
             <p className="hero-bio">
-              I am an <strong>M.Tech Scholar</strong> in Information Security & Cyber Forensics.<br/>
-              Focusing on <strong>Cybersecurity</strong>, <span className="highlight">Blockchain Systems</span>, and <strong>Applied Cryptography</strong>.
+              I hold a <strong>Master's Degree</strong> in <span className="highlight">Information Security & Cyber Forensics</span> and a <strong>Bachelor's Degree</strong> in <span className="highlight">Computer Science and Engineering</span>. I am also a <span className="highlight">Certified Ethical Hacker (CEH)</span>.
             </p>
             <p className="hero-bio-sub">
-              I work on designing and building secure, decentralized systems that bridge academic research and real-world implementation.
+              My work focuses on <strong>Cybersecurity</strong>, <strong>Blockchain Systems</strong>, <strong>Applied Cryptography</strong>, and <strong>finding vulnerabilities in systems</strong>. I currently have 7 peer-reviewed research papers.
             </p>
           </div>
 
           <div className="hero-cta">
             <a href="#projects" className="btn primary">View Projects</a>
             <a href="#publications" className="btn outline">Research Papers</a>
+            <a href="#certifications" className="btn outline">Certifications</a>
+            <a href="#honors" className="btn outline">Awards & Achievements</a>
+            <a href="#skills" className="btn outline">Technical Expertise</a>
             <a href="#contact" className="btn outline">Contact Me</a>
           </div>
         </motion.div>

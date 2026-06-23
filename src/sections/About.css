@@ -1,22 +1,27 @@
 .about-section {
   min-height: 80vh;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.about-content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  align-items: start;
+.bio-row {
+  width: 100%;
+  margin-bottom: 4rem;
 }
 
 .section-title {
   font-size: 2.5rem;
-  color: #fff;
+  background: linear-gradient(135deg, #ffffff 40%, var(--secondary-color) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
   margin-bottom: 2rem;
   position: relative;
   display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .section-title::after {
@@ -26,11 +31,17 @@
   left: 0;
   width: 60px;
   height: 4px;
-  background: var(--primary-color);
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  box-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
+}
+
+.section-title.center::after {
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .bio-text {
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   color: #ccc;
   margin-bottom: 1.5rem;
   line-height: 1.8;
@@ -45,6 +56,7 @@
   display: flex;
   gap: 3rem;
   margin-top: 3rem;
+  flex-wrap: wrap;
 }
 
 .stat-item {
@@ -66,53 +78,180 @@
   letter-spacing: 1px;
 }
 
-.education-column {
+.background-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  width: 100%;
+  align-items: start;
+}
+
+.education-column, .experience-column {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  width: 100%;
+}
+
+.edu-cards-container, .exp-cards-container {
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  position: relative;
+  padding-left: 2rem;
+  border-left: 1px dashed rgba(255, 255, 255, 0.1);
 }
 
-.edu-card {
-  background: var(--glass-bg);
-  border: 1px solid var(--glass-border);
-  padding: 1.5rem;
-  border-left: 4px solid var(--primary-color);
-  transition: transform 0.3s ease, background 0.3s ease;
+.edu-card, .exp-card {
+  position: relative;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.02) 0%, rgba(255, 255, 255, 0.005) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 8px;
+  padding: 1.75rem;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(8px);
 }
 
+/* Timeline Node styling */
+.edu-card::before, .exp-card::before {
+  content: '';
+  position: absolute;
+  left: -2rem;
+  top: 2.2rem;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  transform: translateX(-50%);
+  transition: all 0.3s ease;
+  z-index: 5;
+}
+
+.edu-card::before {
+  background: var(--primary-color);
+  box-shadow: 0 0 10px var(--primary-color), 0 0 2px 2px rgba(0, 255, 65, 0.2);
+}
+
+.exp-card::before {
+  background: var(--secondary-color);
+  box-shadow: 0 0 10px var(--secondary-color), 0 0 2px 2px rgba(0, 243, 255, 0.2);
+}
+
+/* Cyber corner accents */
+.edu-card::after, .exp-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  background: radial-gradient(circle at top right, rgba(255, 255, 255, 0.04) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* Hover effects */
 .edu-card:hover {
-  transform: translateX(10px);
-  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-6px);
+  background: linear-gradient(135deg, rgba(0, 255, 65, 0.03) 0%, rgba(0, 255, 65, 0.005) 100%);
+  border-color: rgba(0, 255, 65, 0.3);
+  box-shadow: 0 15px 30px rgba(0, 255, 65, 0.08), 0 0 1px rgba(0, 255, 65, 0.15) inset;
+}
+
+.exp-card:hover {
+  transform: translateY(-6px);
+  background: linear-gradient(135deg, rgba(0, 243, 255, 0.03) 0%, rgba(0, 243, 255, 0.005) 100%);
+  border-color: rgba(0, 243, 255, 0.3);
+  box-shadow: 0 15px 30px rgba(0, 243, 255, 0.08), 0 0 1px rgba(0, 243, 255, 0.15) inset;
+}
+
+.edu-card:hover::before {
+  transform: translateX(-50%) scale(1.4);
+  box-shadow: 0 0 20px var(--primary-color), 0 0 4px 4px rgba(0, 255, 65, 0.3);
+}
+
+.exp-card:hover::before {
+  transform: translateX(-50%) scale(1.4);
+  box-shadow: 0 0 20px var(--secondary-color), 0 0 4px 4px rgba(0, 243, 255, 0.3);
+}
+
+/* Capsule badges for years and periods */
+.edu-year, .exp-period {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 12px;
+  margin-bottom: 0.9rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
 }
 
 .edu-year {
-  font-family: var(--font-mono);
+  background: rgba(255, 0, 60, 0.08);
   color: var(--accent-color);
-  font-size: 0.9rem;
-  margin-bottom: 0.5rem;
+  border: 1px solid rgba(255, 0, 60, 0.25);
+  box-shadow: 0 0 12px rgba(255, 0, 60, 0.15);
 }
 
-.edu-degree {
-  font-size: 1.2rem;
-  color: #fff;
-  margin-bottom: 0.5rem;
+.exp-period {
+  background: rgba(0, 243, 255, 0.08);
+  color: var(--secondary-color);
+  border: 1px solid rgba(0, 243, 255, 0.25);
+  box-shadow: 0 0 12px rgba(0, 243, 255, 0.15);
+}
+
+/* Typography styles */
+.edu-degree, .exp-role {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.4rem;
+  letter-spacing: 0.5px;
+  line-height: 1.4;
 }
 
 .edu-school {
-  font-size: 1rem;
+  font-size: 0.95rem;
+  font-weight: 600;
   color: var(--primary-color);
-  margin-bottom: 0.5rem;
-  font-weight: 500;
+  margin-bottom: 0.75rem;
+  text-shadow: 0 0 8px rgba(0, 255, 65, 0.15);
 }
 
-.edu-detail {
-  font-size: 0.9rem;
-  color: #aaa;
+.exp-company {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--secondary-color);
+  margin-bottom: 0.75rem;
+  text-shadow: 0 0 8px rgba(0, 243, 255, 0.15);
 }
 
-@media (max-width: 768px) {
-  .about-content {
+.edu-detail, .exp-description {
+  font-size: 0.88rem;
+  color: #b0b0b0;
+  line-height: 1.6;
+}
+
+.exp-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.4rem;
+}
+
+.exp-location {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: #666;
+  margin-bottom: 0.9rem;
+}
+
+@media (max-width: 900px) {
+  .background-grid {
     grid-template-columns: 1fr;
-    gap: 3rem;
+    gap: 3.5rem;
   }
 }

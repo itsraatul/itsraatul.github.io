@@ -15,6 +15,12 @@ const Contact = () => {
             Say Hello
         </a>
 
+        <div className="contact-email-raw">
+          <a href="mailto:its.raatul@gmail.com" title="Click to email or select to copy">
+            its.raatul@gmail.com
+          </a>
+        </div>
+
         <div className="social-links">
             <a href="https://linkedin.com/in/raatul" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                 <FaLinkedin size={24} />

@@ -1,0 +1,99 @@
+.cursor-dot,
+.cursor-outline {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+/* Crosshair core */
+.cursor-dot {
+  width: 10px;
+  height: 10px;
+  transform: translate(-50%, -50%);
+  transition: width 0.2s, height 0.2s;
+}
+
+.cursor-dot::before,
+.cursor-dot::after {
+  content: '';
+  position: absolute;
+  background-color: var(--primary-color);
+  box-shadow: 0 0 8px var(--primary-color);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.2s ease;
+}
+
+.cursor-dot::before {
+  width: 100%;
+  height: 2px;
+}
+
+.cursor-dot::after {
+  width: 2px;
+  height: 100%;
+}
+
+/* Rotating dashed outline */
+.cursor-outline {
+  width: 45px;
+  height: 45px;
+  border: 1.5px dashed var(--primary-color);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.2s, height 0.2s, background-color 0.2s, border-radius 0.2s, border-color 0.2s;
+  animation: cursorRotate 8s linear infinite;
+  box-shadow: 0 0 10px rgba(0, 255, 65, 0.1) inset;
+}
+
+@keyframes cursorRotate {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Hover state (Cyber Blue) */
+body.hovered .cursor-outline {
+  width: 65px;
+  height: 65px;
+  background-color: rgba(0, 243, 255, 0.1);
+  border: 1px solid var(--secondary-color);
+  border-radius: 15%; /* Snaps to a tech square */
+  animation: cursorRotateHover 3s linear infinite reverse;
+}
+
+@keyframes cursorRotateHover {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(-360deg); }
+}
+
+body.hovered .cursor-dot::before,
+body.hovered .cursor-dot::after {
+  background-color: var(--secondary-color);
+  box-shadow: 0 0 10px var(--secondary-color);
+}
+
+/* Click state (Cyber Red) */
+body.clicking .cursor-outline {
+  animation: none;
+  transform: translate(-50%, -50%) scale(0.7);
+  border: 1px solid var(--accent-color);
+  background-color: rgba(255, 0, 60, 0.15);
+  border-radius: 50%;
+}
+
+body.clicking .cursor-dot::before,
+body.clicking .cursor-dot::after {
+  background-color: var(--accent-color);
+  box-shadow: 0 0 12px var(--accent-color);
+}
+
+/* Hide on touch devices */
+@media (max-width: 768px) {
+  .cursor-dot,
+  .cursor-outline {
+    display: none;
+  }
+}

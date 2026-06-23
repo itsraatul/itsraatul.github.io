@@ -28,13 +28,37 @@
     font-size: 1.1rem;
     text-decoration: none;
     transition: all 0.3s ease;
-    margin-bottom: 4rem;
+    margin-bottom: 1.5rem;
 }
 
 .contact-btn:hover {
     background: rgba(0, 255, 65, 0.1);
     box-shadow: 0 0 20px rgba(0, 255, 65, 0.2);
     transform: translateY(-3px);
+}
+
+.contact-email-raw {
+    font-family: var(--font-mono);
+    font-size: 1.1rem;
+    margin-bottom: 3.5rem;
+    user-select: text !important;
+    -webkit-user-select: text !important;
+    -moz-user-select: text !important;
+    -ms-user-select: text !important;
+}
+
+.contact-email-raw a {
+    color: var(--secondary-color);
+    border-bottom: 1px dashed rgba(0, 243, 255, 0.3);
+    padding-bottom: 4px;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.contact-email-raw a:hover {
+    color: #fff;
+    border-bottom-color: #fff;
+    text-shadow: 0 0 10px rgba(0, 243, 255, 0.4);
 }
 
 .social-links {

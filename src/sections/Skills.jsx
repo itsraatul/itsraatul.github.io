@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { FaPython, FaJs, FaLinux, FaDocker, FaWindows, FaNetworkWired } from "react-icons/fa";
-import { SiCplusplus, SiSolidity, SiDart, SiMysql, SiWireshark, SiBurpsuite, SiGnubash, SiPandas, SiNumpy, SiTableau, SiLatex, SiKalilinux, SiMetasploit } from "react-icons/si";
+import { FaPython, FaJs, FaNetworkWired, FaShieldAlt, FaGlobe, FaSearch } from "react-icons/fa";
+import { SiC, SiCplusplus, SiSolidity, SiDart, SiMysql, SiWireshark, SiBurpsuite, SiLatex, SiKalilinux, SiMetasploit } from "react-icons/si";
 import { VscTerminal } from "react-icons/vsc";
 import { BsHddNetwork } from "react-icons/bs";
 import Section from "../components/Section";
@@ -10,51 +10,75 @@ import "./Skills.css";
 const Skills = () => {
     const arsenal = [
         {
-            category: "Programming Languages",
+            category: "Languages",
             items: [
                 { name: "Python", icon: <FaPython /> },
-                { name: "C/C++", icon: <SiCplusplus /> },
+                { name: "C", icon: <SiC /> },
+                { name: "C++", icon: <SiCplusplus /> },
                 { name: "JavaScript", icon: <FaJs /> },
                 { name: "SQL", icon: <SiMysql /> },
-                { name: "Dart", icon: <SiDart /> },
                 { name: "Solidity", icon: <SiSolidity /> },
-                { name: "Bash", icon: <SiGnubash /> }
+                { name: "Dart", icon: <SiDart /> },
+                { name: "LaTeX", icon: <SiLatex /> }
             ]
         },
         {
-            category: "Blockchain & Web3",
+            category: "Blockchain & Web3 Tools",
             items: [
                 { name: "Hardhat", icon: <SiSolidity /> },
-                { name: "Truffle", icon: null },
-                { name: "Ganache", icon: null },
+                { name: "Truffle", icon: <SiSolidity /> },
+                { name: "Ganache", icon: <SiSolidity /> },
                 { name: "Web3.js", icon: <FaJs /> },
                 { name: "Ethers.js", icon: <FaJs /> },
-                { name: "Clarity", icon: null },
-                { name: "Smart Contracts", icon: <SiSolidity /> }
+                { name: "Clarity", icon: <SiSolidity /> }
             ]
         },
         {
-            category: "Cybersecurity Tools",
+            category: "Penetration Testing",
             items: [
-                { name: "Burp Suite", icon: <SiBurpsuite /> },
-                { name: "Nmap", icon: <SiGnubash /> },
-                { name: "Metasploit", icon: <SiMetasploit /> },
-                { name: "Wireshark", icon: <SiWireshark /> },
-                { name: "Recon-ng", icon: <FaNetworkWired /> },
+                { name: "Web Application Security Testing", icon: <SiBurpsuite /> },
+                { name: "Vulnerability Assessment", icon: <FaShieldAlt /> },
+                { name: "OWASP Top 10", icon: <FaShieldAlt /> },
+                { name: "Network Penetration Testing", icon: <FaNetworkWired /> },
+                { name: "API Security Testing", icon: <FaShieldAlt /> },
+                { name: "Secure Code Review", icon: <SiCplusplus /> },
+                { name: "Threat Modeling", icon: <FaSearch /> }
+            ]
+        },
+        {
+            category: "Tools",
+            items: [
                 { name: "Kali Linux", icon: <SiKalilinux /> },
-                { name: "Cisco Packet Tracer", icon: <BsHddNetwork /> }
+                { name: "Burp Suite", icon: <SiBurpsuite /> },
+                { name: "Nmap", icon: <VscTerminal /> },
+                { name: "Wireshark", icon: <SiWireshark /> },
+                { name: "Metasploit", icon: <SiMetasploit /> },
+                { name: "Recon-ng", icon: <FaNetworkWired /> },
+                { name: "Autopsy", icon: <VscTerminal /> },
+                { name: "Qualys VMDR", icon: <FaShieldAlt /> },
+                { name: "Nuclei", icon: <FaSearch /> },
+                { name: "Sqlmap", icon: <SiMysql /> },
+                { name: "Ghidra", icon: <SiKalilinux /> },
+                { name: "Hashcat", icon: <VscTerminal /> }
             ]
         },
         {
-            category: "Cyber Forensics",
+            category: "Network Security",
             items: [
-                { name: "Autopsy", icon: <VscTerminal /> },
-                { name: "EnCase", icon: <BsHddNetwork /> }, // Using generic network/HDD icon
-                { name: "FTK Imager", icon: <BsHddNetwork /> },
-                { name: "Volatility", icon: <VscTerminal /> },
-                { name: "Regshot", icon: <FaWindows /> },
-                { name: "IDA Pro", icon: <VscTerminal /> },
-                { name: "Ghidra", icon: <SiKalilinux /> }
+                { name: "TCP/IP", icon: <FaNetworkWired /> },
+                { name: "DNS", icon: <BsHddNetwork /> },
+                { name: "HTTP/HTTPS", icon: <FaGlobe /> },
+                { name: "Packet Analysis", icon: <SiWireshark /> },
+                { name: "Firewall Concepts", icon: <FaShieldAlt /> }
+            ]
+        },
+        {
+            category: "Blue Team",
+            items: [
+                { name: "Threat Hunting", icon: <FaSearch /> },
+                { name: "SIEM Fundamentals", icon: <VscTerminal /> },
+                { name: "Incident Response", icon: <FaShieldAlt /> },
+                { name: "OSINT", icon: <FaNetworkWired /> }
             ]
         }
     ];
@@ -67,7 +91,7 @@ const Skills = () => {
         whileInView={{ opacity: 1, letterSpacing: "2px" }}
         viewport={{ once: true }}
       >
-        Technical Arsenal
+        Technical Expertise
       </motion.h2>
 
       <div className="arsenal-grid">
